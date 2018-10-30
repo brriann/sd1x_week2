@@ -258,6 +258,58 @@ class SquarelotronTest {
 
 	@Test
 	void testRotateRight() {
-		fail("Not yet implemented"); // TODO
+		// *** 4x4 ***
+		Squarelotron sq4Ref = new Squarelotron(4);
+		sq4Ref.rotateRight(1);
+		assertEquals(sq4Ref.squarelotron[0][0], 13);
+		assertEquals(sq4Ref.squarelotron[1][0], 14);
+		assertEquals(sq4Ref.squarelotron[2][0], 15);
+		assertEquals(sq4Ref.squarelotron[3][0], 16);
+		
+		assertEquals(sq4Ref.squarelotron[0][2], 5);
+		assertEquals(sq4Ref.squarelotron[1][2], 6);
+		assertEquals(sq4Ref.squarelotron[2][2], 7);
+		assertEquals(sq4Ref.squarelotron[3][2], 8);
+
+		Squarelotron sq4ref2 = new Squarelotron(4);
+		sq4ref2.rotateRight(-1);
+		assertEquals(sq4Ref.squarelotron[0][0], 4);
+		assertEquals(sq4Ref.squarelotron[1][0], 3);
+		assertEquals(sq4Ref.squarelotron[2][0], 2);
+		assertEquals(sq4Ref.squarelotron[3][0], 1);
+		
+		assertEquals(sq4Ref.squarelotron[0][2], 12);
+		assertEquals(sq4Ref.squarelotron[1][2], 11);
+		assertEquals(sq4Ref.squarelotron[2][2], 10);
+		assertEquals(sq4Ref.squarelotron[3][2], 9);
+		
+		// *** 5x5 ***
+		Squarelotron sq5Ref = new Squarelotron(5);
+		sq5Ref.rotateRight(-1);
+		assertEquals(sq5Ref.squarelotron[0][2], 15);
+		assertEquals(sq5Ref.squarelotron[1][2], 14);
+		assertEquals(sq5Ref.squarelotron[2][2], 13);
+		assertEquals(sq5Ref.squarelotron[3][2], 12);
+		assertEquals(sq5Ref.squarelotron[4][2], 11);
+		
+		assertEquals(sq5Ref.squarelotron[0][4], 25);
+		assertEquals(sq5Ref.squarelotron[1][4], 24);
+		assertEquals(sq5Ref.squarelotron[2][4], 23);
+		assertEquals(sq5Ref.squarelotron[3][4], 22);
+		assertEquals(sq5Ref.squarelotron[4][4], 21);
+		
+		Squarelotron sq5Ref2 = new Squarelotron(5);
+		sq5Ref2.rotateRight(1);
+		assertEquals(sq5Ref.squarelotron[0][2], 11);
+		assertEquals(sq5Ref.squarelotron[1][2], 12);
+		assertEquals(sq5Ref.squarelotron[2][2], 13);
+		assertEquals(sq5Ref.squarelotron[3][2], 14);
+		assertEquals(sq5Ref.squarelotron[4][2], 15);
+		
+		assertEquals(sq5Ref.squarelotron[0][4], 1);
+		assertEquals(sq5Ref.squarelotron[1][4], 2);
+		assertEquals(sq5Ref.squarelotron[2][4], 3);
+		assertEquals(sq5Ref.squarelotron[3][4], 4);
+		assertEquals(sq5Ref.squarelotron[4][4], 5);
 	}
 }
