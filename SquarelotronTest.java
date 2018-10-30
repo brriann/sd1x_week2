@@ -137,7 +137,123 @@ class SquarelotronTest {
 
 	@Test
 	void testMainDiagonalFlip() {
-		fail("Not yet implemented"); // TODO
+		// *** 4x4 ***
+		
+		// flip outer ring
+		Squarelotron sq4_md1 = sq4.mainDiagonalFlip(1);
+		for (int i = 1; i < 3; i++) {
+			for (int j = 1; j < 3; j++) {
+				assertEquals(sq4.squarelotron[i][j], sq4_md1.squarelotron[i][j]);
+			}
+		}
+		assertEquals(sq4.squarelotron[0][0], sq4_md1.squarelotron[0][0]);
+		assertEquals(sq4.squarelotron[3][3], sq4_md1.squarelotron[3][3]);
+		
+		assertEquals(sq4.squarelotron[0][1], sq4_md1.squarelotron[1][0]);
+		assertEquals(sq4.squarelotron[0][2], sq4_md1.squarelotron[2][0]);
+		assertEquals(sq4.squarelotron[1][0], sq4_md1.squarelotron[0][1]);
+		assertEquals(sq4.squarelotron[2][0], sq4_md1.squarelotron[0][2]);
+		assertEquals(sq4.squarelotron[1][3], sq4_md1.squarelotron[3][1]);
+		assertEquals(sq4.squarelotron[2][3], sq4_md1.squarelotron[3][2]);
+		assertEquals(sq4.squarelotron[3][1], sq4_md1.squarelotron[1][3]);
+		assertEquals(sq4.squarelotron[3][2], sq4_md1.squarelotron[2][3]);
+		
+		
+		// flip inner ring
+		Squarelotron sq4_md2 = sq4.mainDiagonalFlip(2);
+		for (int j = 1; j < 3; j++) {
+			assertEquals(sq4.squarelotron[0][j], sq4_md2.squarelotron[0][j]);
+		}
+		for (int j = 1; j < 3; j++) {
+			assertEquals(sq4.squarelotron[3][j], sq4_md2.squarelotron[3][j]);
+		}
+		assertEquals(sq4.squarelotron[1][0], sq4_md2.squarelotron[1][0]);
+		assertEquals(sq4.squarelotron[2][0], sq4_md2.squarelotron[2][0]);
+		assertEquals(sq4.squarelotron[1][3], sq4_md2.squarelotron[1][3]);
+		assertEquals(sq4.squarelotron[2][3], sq4_md2.squarelotron[2][3]);
+		
+		assertEquals(sq4.squarelotron[1][1], sq4_md2.squarelotron[1][1]);
+		assertEquals(sq4.squarelotron[2][2], sq4_md2.squarelotron[2][2]);
+		assertEquals(sq4.squarelotron[1][2], sq4_md2.squarelotron[2][1]);
+		assertEquals(sq4.squarelotron[2][1], sq4_md2.squarelotron[1][2]);
+		
+		// test that a ring past ring limit returns equal sp
+		Squarelotron sq4_md3 = sq4.mainDiagonalFlip(3);
+		
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 4; j++) {
+				assertEquals(sq4_md3.squarelotron[i][j], sq4.squarelotron[i][j]);
+			}
+		}
+		
+		// *** 5x5 ***
+		
+		// flip outer ring
+		Squarelotron sq5_md1 = sq5.mainDiagonalFlip(1);
+		for (int i = 1; i < 4; i++) {
+			for (int j = 1; j < 4; j++) {
+				assertEquals(sq5.squarelotron[i][j], sq5_md1.squarelotron[i][j]);
+			}
+		}
+		assertEquals(sq5.squarelotron[0][0], sq5_md1.squarelotron[0][0]);
+		assertEquals(sq5.squarelotron[4][4], sq5_md1.squarelotron[4][4]);
+		
+		assertEquals(sq5.squarelotron[0][1], sq5_md1.squarelotron[1][0]);
+		assertEquals(sq5.squarelotron[0][2], sq5_md1.squarelotron[2][0]);
+		assertEquals(sq5.squarelotron[0][3], sq5_md1.squarelotron[3][0]);
+		
+		assertEquals(sq5.squarelotron[1][0], sq5_md1.squarelotron[0][1]);
+		assertEquals(sq5.squarelotron[2][0], sq5_md1.squarelotron[0][2]);
+		assertEquals(sq5.squarelotron[3][0], sq5_md1.squarelotron[0][3]);
+		
+		assertEquals(sq5.squarelotron[1][4], sq5_md1.squarelotron[4][1]);
+		assertEquals(sq5.squarelotron[2][4], sq5_md1.squarelotron[4][2]);
+		assertEquals(sq5.squarelotron[3][4], sq5_md1.squarelotron[4][3]);
+		
+		assertEquals(sq5.squarelotron[1][4], sq5_md1.squarelotron[4][1]);
+		assertEquals(sq5.squarelotron[2][4], sq5_md1.squarelotron[4][2]);
+		assertEquals(sq5.squarelotron[3][4], sq5_md1.squarelotron[4][3]);
+		
+		assertEquals(sq5.squarelotron[0][4], sq5_md1.squarelotron[4][0]);
+		assertEquals(sq5.squarelotron[4][0], sq5_md1.squarelotron[0][4]);
+		
+		// flip inner ring
+		Squarelotron sq5_md2 = sq5.mainDiagonalFlip(2);
+		
+		for (int j = 0; j < 5; j++) {
+			assertEquals(sq5.squarelotron[0][j], sq5_md2.squarelotron[0][j]);
+		}
+		for (int j = 0; j < 5; j++) {
+			assertEquals(sq5.squarelotron[4][j], sq5_md2.squarelotron[4][j]);
+		}
+		
+		assertEquals(sq5.squarelotron[1][0], sq5_md2.squarelotron[1][0]);
+		assertEquals(sq5.squarelotron[2][0], sq5_md2.squarelotron[2][0]);
+		assertEquals(sq5.squarelotron[3][0], sq5_md2.squarelotron[3][0]);
+		
+		assertEquals(sq5.squarelotron[1][4], sq5_md2.squarelotron[1][4]);
+		assertEquals(sq5.squarelotron[2][4], sq5_md2.squarelotron[2][4]);
+		assertEquals(sq5.squarelotron[3][4], sq5_md2.squarelotron[3][4]);
+		
+		assertEquals(sq5.squarelotron[1][1], sq5_md2.squarelotron[1][1]);
+		assertEquals(sq5.squarelotron[2][2], sq5_md2.squarelotron[2][2]);
+		assertEquals(sq5.squarelotron[3][3], sq5_md2.squarelotron[3][3]);
+		
+		assertEquals(sq5.squarelotron[1][2], sq5_md2.squarelotron[2][1]);
+		assertEquals(sq5.squarelotron[2][1], sq5_md2.squarelotron[1][2]);
+		assertEquals(sq5.squarelotron[1][3], sq5_md2.squarelotron[3][1]);
+		assertEquals(sq5.squarelotron[3][1], sq5_md2.squarelotron[1][3]);
+		assertEquals(sq5.squarelotron[3][2], sq5_md2.squarelotron[2][3]);
+		assertEquals(sq5.squarelotron[2][3], sq5_md2.squarelotron[3][2]);
+		
+		// test that a ring past ring limit returns equal sp
+		Squarelotron sq5_md3 = sq5.mainDiagonalFlip(3);
+		
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j++) {
+				assertEquals(sq5_md3.squarelotron[i][j], sq5.squarelotron[i][j]);
+			}
+		}
 	}
 
 	@Test
